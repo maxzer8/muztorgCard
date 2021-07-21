@@ -1,0 +1,59 @@
+$small-xs: 375px;
+$small: 720px;
+$sTablet: 768px;
+$lTablet: 1150px;
+$large: 1360px;
+$desktop: 721px;
+$containerWidth: 1280px;
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  } @else if $media == mobile-xl {
+    @media only screen and (min-width: $small-xs) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media only screen and (min-width: $desktop) {
+      @content;
+    }
+  } @else if $media == containerWidth {
+    @media only screen and (max-width: $containerWidth) {
+      @content;
+    }
+  } @else if $media == MS {
+    @media only screen and (min-width: $small + 1) and (max-width: $large - 1) {
+      @content;
+    }
+  } @else if $media == LS {
+    @media only screen and (min-width: $large) {
+      @content;
+    }
+  } @else if $media == lTablet {
+    @media only screen and (max-width: $lTablet) {
+      @content;
+    }
+  } @else if $media == sTablet {
+    @media only screen and (max-width: $sTablet) {
+      @content;
+    }
+  } @else if $media == osTablet {
+    @media only screen and (max-width: $sTablet) and (min-width: $small + 1) {
+      @content;
+    }
+  } @else if $media == olTablet {
+    @media only screen and (max-width: $lTablet) and (min-width: $sTablet + 1) {
+      @content;
+    }
+  } @else if $media == tablets {
+    @media only screen and (max-width: $lTablet) and (min-width: $small + 1) {
+      @content;
+    }
+  } @else if $media == print {
+    @media print {
+      @content
+    }
+  }
+}
